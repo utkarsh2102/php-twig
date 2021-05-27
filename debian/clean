@@ -1,0 +1,10 @@
+.phpunit.result.cache
+debian/*.tpl
+debian/autoloaders/
+debian/build-tmp/
+debian/packages_to_build/
+extra/*/autoload.php
+src/autoload.php
+src/Extra/
+Twig
+vendor/

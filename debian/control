@@ -1,0 +1,209 @@
+Source: php-twig
+Maintainer: Debian PHP PEAR Maintainers <pkg-php-pear@lists.alioth.debian.org>
+Uploaders: Daniel Beyer <dabe@deb.ymc.ch>, David Prévot <taffit@debian.org>
+Section: php
+Priority: optional
+Standards-Version: 4.5.1
+Build-Depends: debhelper-compat (= 13),
+               jq,
+               locales-all,
+               php-cli,
+               php-league-commonmark,
+               php-league-html-to-markdown,
+               php-lorenzo-pinky,
+               php-mbstring,
+               php-parsedown,
+               php-psr-container,
+               php-symfony-framework-bundle,
+               php-symfony-intl,
+               php-symfony-mime,
+               php-symfony-phpunit-bridge,
+##               php-symfony-string,
+               php-symfony-twig-bundle,
+               php-tijsverkoyen-css-to-inline-styles,
+               phpab,
+               phpunit (>= 9),
+               pkg-php-tools (>= 1.41~),
+               python3-sphinx,
+               re2c
+Homepage: https://twig.symfony.com
+Vcs-Browser: https://salsa.debian.org/php-team/pear/twig
+Vcs-Git: https://salsa.debian.org/php-team/pear/twig.git -b debian/latest
+Rules-Requires-Root: no
+
+Package: php-twig
+Architecture: all
+Depends: php-ctype,
+         php-mbstring,
+         ${misc:Depends},
+         ${phpcomposer:Debian-require}
+Suggests: php-twig-doc
+Breaks: php-twig-extensions
+Description: Flexible, fast, and secure template engine for PHP
+ Twig is a fast, secure and flexible template engine for php, implementing an
+ own domain specific language which originated from Jinja and Django templates.
+
+Package: php-twig-doc
+Section: doc
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}, ${sphinxdoc:Depends}
+Description: Twig template engine documentation
+ This documentation describes the internals of Twig and the use of
+ it from the perspective of a template designer as well as from the
+ perspective of a developer.
+ .
+ Twig itself is a flexible, fast and secure template engine for PHP.
+
+Package: php-twig-cache-extra
+Architecture: all
+Depends: ${misc:Depends}, ${phpcomposer:Debian-require}
+Suggests: ${phpcomposer:Debian-suggest}
+Recommends: ${phpcomposer:Debian-recommend}
+Replaces: ${phpcomposer:Debian-replace}
+Breaks: ${phpcomposer:Debian-conflict}, ${phpcomposer:Debian-replace}
+Provides: ${phpcomposer:Debian-provide}
+Homepage: https://twig.symfony.com/u
+Description: ${phpcomposer:description}
+ Twig String extension that provides integration with the Symfony Cache
+ component.
+ .
+ It provides a single `cache` tag that allows one to cache template
+ fragments.
+ .
+ Twig itself is a flexible, fast and secure template engine for PHP.
+
+Package: php-twig-cssinliner-extra
+Architecture: all
+Depends: ${misc:Depends}, ${phpcomposer:Debian-require}
+Suggests: ${phpcomposer:Debian-suggest}
+Recommends: ${phpcomposer:Debian-recommend}
+Replaces: ${phpcomposer:Debian-replace}
+Breaks: ${phpcomposer:Debian-conflict}, ${phpcomposer:Debian-replace}
+Provides: ${phpcomposer:Debian-provide}
+Homepage: https://twig.symfony.com/inline_css
+Description: ${phpcomposer:description}
+ Twig CssInliner Extension extension that provides the following:
+ .
+  - inline_css filter: inlines CSS styles in HTML documents.
+ .
+ Twig itself is a flexible, fast and secure template engine for PHP.
+
+Package: php-twig-html-extra
+Architecture: all
+Depends: ${misc:Depends}, ${phpcomposer:Debian-require}
+Suggests: ${phpcomposer:Debian-suggest}
+Recommends: ${phpcomposer:Debian-recommend}
+Replaces: ${phpcomposer:Debian-replace}
+Breaks: ${phpcomposer:Debian-conflict}, ${phpcomposer:Debian-replace}
+Provides: ${phpcomposer:Debian-provide}
+Homepage: https://twig.symfony.com/html_classes
+Description: ${phpcomposer:description}
+ Twig HTML extension that provides the following:
+ .
+  - data_uri filter: generates a URL using the data scheme as defined in
+    RFC 2397;
+  - html_classes function: returns a string by conditionally joining class
+    names together.
+ .
+ Twig itself is a flexible, fast and secure template engine for PHP.
+
+Package: php-twig-inky-extra
+Architecture: all
+Depends: ${misc:Depends}, ${phpcomposer:Debian-require}
+Suggests: ${phpcomposer:Debian-suggest}
+Recommends: ${phpcomposer:Debian-recommend}
+Replaces: ${phpcomposer:Debian-replace}
+Breaks: ${phpcomposer:Debian-conflict}, ${phpcomposer:Debian-replace}
+Provides: ${phpcomposer:Debian-provide}
+Homepage: https://twig.symfony.com/inky
+Description: ${phpcomposer:description}
+ Twig Inky extension that provides the following:
+ .
+  - inky_to_html filter: processes an inky email template.
+ .
+ Twig itself is a flexible, fast and secure template engine for PHP.
+
+Package: php-twig-intl-extra
+Architecture: all
+Depends: ${misc:Depends}, ${phpcomposer:Debian-require}
+Suggests: ${phpcomposer:Debian-suggest}
+Recommends: ${phpcomposer:Debian-recommend}
+Replaces: ${phpcomposer:Debian-replace}
+Breaks: ${phpcomposer:Debian-conflict}, ${phpcomposer:Debian-replace}
+Provides: ${phpcomposer:Debian-provide}
+Homepage: https://twig.symfony.com/country_name
+Description: ${phpcomposer:description}
+ Twig Intl extension that provides the following:
+ .
+  - country_name filter: returns the country name given its
+    two-letter/five-letter code;
+  - currency_name filter: returns the currency name given its three-letter
+    code;
+  - currency_symbol filter: returns the currency symbol given its
+    three-letter code;
+  - language_name filter: returns the language name given its
+    two-letter/five-letter code;
+  - locale_name filter: returns the language name given its
+    two-letter/five-letter code;
+  - timezone_name filter: returns the timezone name given its identifier;
+  - country_timezones filter: returns the timezone identifiers of the given
+    country code;
+  - format_currency filter: formats a number as a currency;
+  - format_number filter: formats a number;
+  - format_datetime filter: formats a date time;
+  - format_date filter: formats a date;
+  - format_time filter: formats a time.
+ .
+ Twig itself is a flexible, fast and secure template engine for PHP.
+
+Package: php-twig-markdown-extra
+Architecture: all
+Depends: ${misc:Depends}, ${phpcomposer:Debian-require}
+Suggests: ${phpcomposer:Debian-suggest}
+Recommends: ${phpcomposer:Debian-recommend}
+Replaces: ${phpcomposer:Debian-replace}
+Breaks: ${phpcomposer:Debian-conflict}, ${phpcomposer:Debian-replace}
+Provides: ${phpcomposer:Debian-provide}
+Homepage: https://twig.symfony.com/markdown_to_html
+Description: ${phpcomposer:description}
+ Twig Markdown extension that provides the following:
+ .
+  - markdown_to_html filter: generates HTML from a Markdown block;
+  - html_to_markdown filter: generates Markdown from an HTML block.
+ .
+ Twig itself is a flexible, fast and secure template engine for PHP.
+
+Package: php-twig-string-extra
+Architecture: all
+Depends: ${misc:Depends}, ${phpcomposer:Debian-require}
+Suggests: ${phpcomposer:Debian-suggest}
+Recommends: ${phpcomposer:Debian-recommend}
+Replaces: ${phpcomposer:Debian-replace}
+Breaks: ${phpcomposer:Debian-conflict}, ${phpcomposer:Debian-replace}
+Provides: ${phpcomposer:Debian-provide}
+Homepage: https://twig.symfony.com/u
+Description: ${phpcomposer:description}
+ Twig String extension that provides integration with the Symfony String
+ component.
+ .
+ It provides a single u filter that wraps a text in a `UnicodeString`
+ object to give access to methods of the class.
+ .
+ Twig itself is a flexible, fast and secure template engine for PHP.
+
+Package: php-twig-extra-bundle
+Architecture: all
+Depends: ${misc:Depends},
+         ${phpcomposer:Debian-replace},
+         ${phpcomposer:Debian-require}
+Recommends: ${phpcomposer:Debian-recommend}
+Suggests: ${phpcomposer:Debian-suggest}
+Replaces: ${phpcomposer:Debian-replace}
+Breaks: ${phpcomposer:Debian-conflict}
+Provides: ${phpcomposer:Debian-provide}
+Description: ${phpcomposer:description}
+ This package is a Symfony bundle that allows one to use all "extra"
+ extensions without any configuration.
+ .
+ Twig itself is a flexible, fast and secure template engine for PHP.

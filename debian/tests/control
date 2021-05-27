@@ -1,0 +1,11 @@
+Test-Command: mkdir -p vendor && phpabtpl --require psr/container --require symfony/phpunit-bridge --require erusev/parsedown --require league/commonmark --require league/html-to-markdown --require twig/twig --require twig/extra-bundle --require twig/cache-extra --require twig/cssinliner-extra --require twig/html-extra --require twig/inky-extra --require twig/intl-extra --require twig/markdown-extra --require twig/string-extra > debian/autoload.tests.php.tpl && phpab -o vendor/autoload.php -t debian/autoload.tests.php.tpl tests && phpunit && for i in extra/*/; do LC_ALL=en_US phpunit $i; done
+Depends: locales-all,
+         php-league-commonmark,
+         php-league-html-to-markdown,
+         php-parsedown,
+         php-psr-container,
+         php-symfony-phpunit-bridge,
+         phpab,
+         phpunit (>= 9),
+         pkg-php-tools (>= 1.41~),
+         @
