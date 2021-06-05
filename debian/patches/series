@@ -1,1 +1,2 @@
 relax-symfony-version.patch
+remove-framework-bundle.patch
