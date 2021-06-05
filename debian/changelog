@@ -1,3 +1,21 @@
+php-twig (3.3.2-1ubuntu2) impish; urgency=medium
+
+  * d/control: Disable all symfony extensions from being used.
+    This needs to be done to break the circular-dependency
+    loop b/w symfony <--> php-twig.
+    NOTE: This is temporary to avoid uninstallability issues
+          and will be reverted once symfony & php-twig build fine.
+  * d/p/relax-symfony-version.patch: Add patch to relax the
+    version of symfony to avoid uninstallability issues.
+    NOTE: This is temporary to avoid uninstallability issues
+          and will be reverted once symfony & php-twig build fine.
+  * d/p/remove-framework-bundle.patch: Add patch to drop
+    framework-bundle from "requires" of twig-extra-bundle.
+    NOTE: This is temporary to avoid uninstallability issues
+          and will be reverted once symfony & php-twig build fine.
+
+ -- Utkarsh Gupta <utkarsh.gupta@canonical.com>  Thu, 03 Jun 2021 13:58:27 +0530
+
 php-twig (3.3.2-1ubuntu1) impish; urgency=medium
 
   * d/control, d/rules: Disable running testsuite to allow sidestepping
