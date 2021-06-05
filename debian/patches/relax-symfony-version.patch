@@ -1,0 +1,30 @@
+Description: [UBUNTU-ONLY] Relax the symfony versions.
+ Since symfony is not built for >= 5.x, let the
+ one in the archive (4.x) be used for the moment.
+Author: Utkarsh Gupta <utkarsh@debian.org>
+Origin: vendor
+Forwarded: not-needed
+Last-Update: 2021-06-03
+
+--- a/extra/cache-extra/composer.json
++++ b/extra/cache-extra/composer.json
+@@ -16,7 +16,7 @@
+     ],
+     "require": {
+         "php": ">=7.2.5",
+-        "symfony/cache": "^5.0",
++        "symfony/cache": ">4 <6",
+         "twig/twig": "^2.4|^3.0"
+     },
+     "require-dev": {
+--- a/extra/string-extra/composer.json
++++ b/extra/string-extra/composer.json
+@@ -16,7 +16,7 @@
+     ],
+     "require": {
+         "php": ">=7.2.5",
+-        "symfony/string": "^5.0",
++        "symfony/string": ">4 <6",
+         "symfony/translation-contracts": "^1.1|^2",
+         "twig/twig": "^2.4|^3.0"
+     },
