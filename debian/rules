@@ -87,16 +87,15 @@ execute_after_dh_auto_build:
 	 done
 
 override_dh_auto_test:
-	##phpunit
-	### testsuite for extra packages
-	##set -e; \
-	## for package_info_file in $$(find debian/packages_to_build/ -mindepth 1 -maxdepth 1 -type f); do \
-	##  . $$package_info_file; \
-	##  if [ -f $$src_path/phpunit.xml.dist ]; then \
-	##   LC_ALL=en_US phpunit $$src_path; \
-	##  fi; \
-	## done
-	echo "*** TESTSUITE DISABLED FOR BOOTSTRAP - See LP: #1929880 ***"
+	phpunit
+	# testsuite for extra packages
+	set -e; \
+	 for package_info_file in $$(find debian/packages_to_build/ -mindepth 1 -maxdepth 1 -type f); do \
+	  . $$package_info_file; \
+	  if [ -f $$src_path/phpunit.xml.dist ]; then \
+	   LC_ALL=en_US phpunit $$src_path; \
+	  fi; \
+	 done
 
 override_dh_install:
 	dh_install --package=php-twig --package=php-twig-doc -XExtra
