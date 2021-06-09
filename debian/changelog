@@ -1,3 +1,22 @@
+php-twig (3.3.2-1ubuntu3) impish; urgency=medium
+
+  * Now that we've symfony 5.x built in -proposed, revert:
+    - d/control: Disable all symfony extensions from being used.
+      This needs to be done to break the circular-dependency
+      loop b/w symfony <--> php-twig.
+    - d/p/relax-symfony-version.patch: Add patch to relax the
+      version of symfony to avoid uninstallability issues.
+    - d/p/remove-framework-bundle.patch: Add patch to drop
+      framework-bundle from "requires" of twig-extra-bundle.
+    - d/{control,rules}: Disable running testsuite to allow
+      sidestepping circular build dependency on php-symfony-string
+      (introduced in 3.0.1-1). (LP #1929880)
+  * d/t/control: Add allow-stderr to Restrictions.
+    "Proceeding without a composer.json file." warning is
+    thrown to stderr now & breaks the autopkgtest.
+
+ -- Utkarsh Gupta <utkarsh.gupta@canonical.com>  Wed, 09 Jun 2021 23:48:16 +0530
+
 php-twig (3.3.2-1ubuntu2) impish; urgency=medium
 
   * d/control: Disable all symfony extensions from being used.
